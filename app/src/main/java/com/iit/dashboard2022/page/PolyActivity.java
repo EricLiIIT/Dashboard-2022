@@ -60,6 +60,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import com.iit.dashboard2022.R;
+import com.iit.dashboard2022.util.GPS;
 
 
 /**
@@ -99,13 +100,8 @@ public class PolyActivity extends Activity
         // Polylines are useful to show a route or some other connection between points.
         Polyline polyline1 = googleMap.addPolyline(new PolylineOptions()
                 .clickable(true)
-                .add(
-                        new LatLng(-35.016, 143.321),
-                        new LatLng(-34.747, 145.592),
-                        new LatLng(-34.364, 147.891),
-                        new LatLng(-33.501, 150.217),
-                        new LatLng(-32.306, 149.248),
-                        new LatLng(-32.491, 147.309)));
+                .add(GPS.coordinateCreation(GPS.getCoordinates())
+                ));
         // Store a data object with the polyline, used here to indicate an arbitrary type.
         polyline1.setTag("A");
         // Style the polyline.
@@ -135,16 +131,6 @@ public class PolyActivity extends Activity
         polygon1.setTag("alpha");
         // Style the polygon.
         stylePolygon(polygon1);
-
-        Polygon polygon2 = googleMap.addPolygon(new PolygonOptions()
-                .clickable(true)
-                .add(
-                        new LatLng(-31.673, 128.892),
-                        new LatLng(-31.952, 115.857),
-                        new LatLng(-17.785, 122.258),
-                        new LatLng(-12.4258, 130.7932)));
-        polygon2.setTag("beta");
-        stylePolygon(polygon2);
 
         // Position the map's camera near Alice Springs in the center of Australia,
         // and set the zoom factor so most of Australia shows on the screen.
