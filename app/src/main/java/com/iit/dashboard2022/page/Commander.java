@@ -51,15 +51,15 @@ public class Commander extends Page {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.tab_commander_layout, container, false);
-        slider = (Slider) rootView.findViewById(R.id.ValueSlider);
-        valueEdit = (EditText) rootView.findViewById(R.id.ValueEdit);
-        toggle = (SwitchMaterial) rootView.findViewById(R.id.OnOffSwitch);
-        maxValueText = (TextView) rootView.findViewById(R.id.maxValueText);
-        minValueText = (TextView) rootView.findViewById(R.id.minValueText);
-        valueActiveText = (TextView) rootView.findViewById(R.id.valueActiveText);
-        IDTextView = (TextView) rootView.findViewById(R.id.IDTextView);
-        submitBtn = (MaterialButton) rootView.findViewById(R.id.submitBtn);
-        valueListLayout = (LinearLayout) rootView.findViewById(R.id.valueListLayout);
+        slider = rootView.findViewById(R.id.ValueSlider);
+        valueEdit = rootView.findViewById(R.id.ValueEdit);
+        toggle = rootView.findViewById(R.id.OnOffSwitch);
+        maxValueText = rootView.findViewById(R.id.maxValueText);
+        minValueText = rootView.findViewById(R.id.minValueText);
+        valueActiveText = rootView.findViewById(R.id.valueActiveText);
+        IDTextView = rootView.findViewById(R.id.IDTextView);
+        submitBtn = rootView.findViewById(R.id.submitBtn);
+        valueListLayout = rootView.findViewById(R.id.valueListLayout);
 
         selector.setSelectionChangedListener(newSelection -> {
             currentSelection = newSelection;

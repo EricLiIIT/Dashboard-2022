@@ -28,7 +28,7 @@ public class Map extends Page {
         TextView coordinate_number;
         int numbers = 0; // placeholder for receiving data
 
-        View view = (ViewGroup) inflater.inflate(R.layout.map_layout, container, false);
+        View view = inflater.inflate(R.layout.map_layout, container, false);
 
         // Start new activity to show map
         Button map_btn = view.findViewById(R.id.show_map);
@@ -43,7 +43,7 @@ public class Map extends Page {
 
 
         // On receiving data, update textview
-        TextView data = (TextView) getView().findViewById(R.id.coordinate_number);
+        TextView data = getView().findViewById(R.id.coordinate_number);
         data.setText(numbers);
 
         return view;

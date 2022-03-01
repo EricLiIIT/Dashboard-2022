@@ -52,6 +52,7 @@ import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.android.gms.maps.model.RoundCap;
 import java.util.Arrays;
 import java.util.List;
+import com.iit.dashboard2022.R;
 
 
 /**
@@ -69,7 +70,7 @@ public class PolyActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
 
         // Retrieve the content view that renders the map.
-        setContentView(R.layout.activity_maps);
+        setContentView(R.layout.activity_poly);
 
         // Get the SupportMapFragment and request notification when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
