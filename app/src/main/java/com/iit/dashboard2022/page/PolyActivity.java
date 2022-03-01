@@ -30,11 +30,15 @@
 
 package com.iit.dashboard2022.page;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
@@ -50,6 +54,9 @@ import com.google.android.gms.maps.model.PolygonOptions;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.android.gms.maps.model.RoundCap;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import com.iit.dashboard2022.R;
@@ -59,7 +66,7 @@ import com.iit.dashboard2022.R;
  * An activity that displays a Google map with polylines to represent paths or routes,
  * and polygons to represent areas.
  */
-public class PolyActivity extends AppCompatActivity
+public class PolyActivity extends Activity
         implements
         OnMapReadyCallback,
         GoogleMap.OnPolylineClickListener,
@@ -73,7 +80,7 @@ public class PolyActivity extends AppCompatActivity
         setContentView(R.layout.activity_poly);
 
         // Get the SupportMapFragment and request notification when the map is ready to be used.
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+        MapFragment mapFragment = (MapFragment) getFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
     }
@@ -84,6 +91,7 @@ public class PolyActivity extends AppCompatActivity
      * This is where we can add markers or lines, add listeners or move the camera.
      * In this tutorial, we add polylines and polygons to represent routes and areas on the map.
      */
+
     @Override
     public void onMapReady(GoogleMap googleMap) {
 
@@ -165,9 +173,9 @@ public class PolyActivity extends AppCompatActivity
             // If no type is given, allow the API to use the default.
             case "A":
                 // Use a custom bitmap as the cap at the start of the line.
-                polyline.setStartCap(
-                        new CustomCap(
-                                BitmapDescriptorFactory.fromResource(R.drawable.ic_arrow), 10));
+//                polyline.setStartCap(
+//                        new CustomCap(
+//                                BitmapDescriptorFactory.fromResource(R.drawable.ic_arrow), 10));
                 break;
             case "B":
                 // Use a round cap at the start of the line.

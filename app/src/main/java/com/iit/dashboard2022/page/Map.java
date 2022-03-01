@@ -41,10 +41,9 @@ public class Map extends Page {
             }
         });
 
-
         // On receiving data, update textview
-        TextView data = getView().findViewById(R.id.coordinate_number);
-        data.setText(numbers);
+        TextView data = view.findViewById(R.id.coordinate_number);
+//        data.setText(numbers);
 
         return view;
     }
