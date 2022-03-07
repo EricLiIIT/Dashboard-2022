@@ -32,17 +32,18 @@ package com.iit.dashboard2022.page;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Toast;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.NotificationCompat;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.BitmapDescriptorFactory;
-import com.google.android.gms.maps.model.CustomCap;
 import com.google.android.gms.maps.model.Dash;
 import com.google.android.gms.maps.model.Dot;
 import com.google.android.gms.maps.model.Gap;
@@ -50,41 +51,51 @@ import com.google.android.gms.maps.model.JointType;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.PatternItem;
 import com.google.android.gms.maps.model.Polygon;
-import com.google.android.gms.maps.model.PolygonOptions;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.android.gms.maps.model.RoundCap;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import com.iit.dashboard2022.R;
-import com.iit.dashboard2022.util.GPS;
-
 
 /**
  * An activity that displays a Google map with polylines to represent paths or routes,
  * and polygons to represent areas.
  */
+
 public class PolyActivity extends Activity
         implements
         OnMapReadyCallback,
         GoogleMap.OnPolylineClickListener,
         GoogleMap.OnPolygonClickListener {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.activity_poly, container, false);
         super.onCreate(savedInstanceState);
 
         // Retrieve the content view that renders the map.
-        setContentView(R.layout.activity_poly);
+//        setContentView(R.layout.activity_poly);
 
         // Get the SupportMapFragment and request notification when the map is ready to be used.
         MapFragment mapFragment = (MapFragment) getFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        return rootView;
     }
+//    @Override
+//    protected void onCreate(Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//
+//        // Retrieve the content view that renders the map.
+//        setContentView(R.layout.activity_poly);
+//
+//        // Get the SupportMapFragment and request notification when the map is ready to be used.
+//        MapFragment mapFragment = (MapFragment) getFragmentManager()
+//                .findFragmentById(R.id.map);
+//        mapFragment.getMapAsync(this);
+//    }
 
     /**
      * Manipulates the map when it's available.
@@ -98,39 +109,30 @@ public class PolyActivity extends Activity
 
         // Add polylines to the map.
         // Polylines are useful to show a route or some other connection between points.
-        Polyline polyline1 = googleMap.addPolyline(new PolylineOptions()
-                .clickable(true)
-                .add(GPS.coordinateCreation(GPS.getCoordinates())
-                ));
+//        Polyline polyline1 = googleMap.addPolyline(new PolylineOptions()
+//                .clickable(true)
+//                .add(GPS.coordinateCreation(GPS.getCoordinates())
+//                ));
         // Store a data object with the polyline, used here to indicate an arbitrary type.
-        polyline1.setTag("A");
+//        polyline1.setTag("A");
         // Style the polyline.
-        stylePolyline(polyline1);
+//        stylePolyline(polyline1);
+        LatLng[] LatLngArray;
+        LatLngArray = new LatLng[6];
+        LatLngArray[0] = new LatLng(-29.501, 119.700);
+        LatLngArray[1] = new LatLng(-27.456, 119.672);
+        LatLngArray[2] = new LatLng(-28.081, 126.555);
+        LatLngArray[3] = new LatLng(-28.848, 124.229);
+        LatLngArray[4] = new LatLng(-28.215, 123.938);
+        LatLngArray[5] = new LatLng(-28.332, 122.938);
 
+
+        Polyline polyline = googleMap.addPolyline(new PolylineOptions().add());
         Polyline polyline2 = googleMap.addPolyline(new PolylineOptions()
                 .clickable(true)
-                .add(
-                        new LatLng(-29.501, 119.700),
-                        new LatLng(-27.456, 119.672),
-                        new LatLng(-25.971, 124.187),
-                        new LatLng(-28.081, 126.555),
-                        new LatLng(-28.848, 124.229),
-                        new LatLng(-28.215, 123.938)));
+                .add(LatLngArray));
         polyline2.setTag("B");
         stylePolyline(polyline2);
-
-        // Add polygons to indicate areas on the map.
-        Polygon polygon1 = googleMap.addPolygon(new PolygonOptions()
-                .clickable(true)
-                .add(
-                        new LatLng(-27.457, 153.040),
-                        new LatLng(-33.852, 151.211),
-                        new LatLng(-37.813, 144.962),
-                        new LatLng(-34.928, 138.599)));
-        // Store a data object with the polygon, used here to indicate an arbitrary type.
-        polygon1.setTag("alpha");
-        // Style the polygon.
-        stylePolygon(polygon1);
 
         // Position the map's camera near Alice Springs in the center of Australia,
         // and set the zoom factor so most of Australia shows on the screen.

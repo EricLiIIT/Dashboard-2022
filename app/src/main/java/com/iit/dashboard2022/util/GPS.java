@@ -7,7 +7,8 @@ import java.util.ArrayList;
 
 public class GPS {
     public static String message (byte[] sentence) {
-
+        String message = "Some String";
+        return message;
     }
 
     public static float[] getCoordinates(String message) {
