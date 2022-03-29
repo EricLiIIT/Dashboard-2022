@@ -12,6 +12,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.UiThread;
+import androidx.fragment.app.Fragment;
 
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.slider.Slider;
@@ -29,7 +30,7 @@ import com.iit.dashboard2022.util.Toaster;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 
-public class Commander extends Page {
+public class Commander extends Fragment implements Page {
 
     private final LiveDataSelector selector = new LiveDataSelector();
 
@@ -174,5 +175,10 @@ public class Commander extends Page {
     @Override
     public String getTitle() {
         return "Commander";
+    }
+
+    @Override
+    public void onPageChange(boolean enter) {
+
     }
 }

@@ -13,16 +13,17 @@ import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
+import com.google.android.gms.maps.MapFragment;
 import com.iit.dashboard2022.R;
 import com.iit.dashboard2022.ui.UITester;
 
 import org.w3c.dom.Text;
 
-public class Map extends Page {
+public class Map extends MapFragment implements Page {
 
     @Nullable
-    @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         String TAG = "Logging";
         TextView coordinate_number;
@@ -31,18 +32,18 @@ public class Map extends Page {
         View view = inflater.inflate(R.layout.map_layout, container, false);
 
         // Start new activity to show map
-        Button map_btn = view.findViewById(R.id.show_map);
-        map_btn.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                Intent logDetailIntent = new Intent(getContext().getApplicationContext(), PolyActivity.class);
-                startActivity(logDetailIntent);
-                Log.i(TAG, "Displaying Map");
-            }
-        });
+//        Button map_btn = view.findViewById(R.id.show_map);
+//        map_btn.setOnClickListener(new View.OnClickListener(){
+//            @Override
+//            public void onClick(View v) {
+//                Intent logDetailIntent = new Intent(getContext().getApplicationContext(), PolyActivity.class);
+//                startActivity(logDetailIntent);
+//                Log.i(TAG, "Displaying Map");
+//            }
+//        });
 
         // On receiving data, update textview
-        TextView data = view.findViewById(R.id.coordinate_number);
+//        TextView data = view.findViewById(R.id.coordinate_number);
 //        data.setText(numbers);
 
         return view;
@@ -52,6 +53,11 @@ public class Map extends Page {
     @Override
     public String getTitle() {
         return null;
+    }
+
+    @Override
+    public void onPageChange(boolean enter) {
+
     }
 
 //    @Override

@@ -7,10 +7,11 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import com.iit.dashboard2022.R;
 
-public class About extends Page {
+public class About extends Fragment implements Page {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -21,5 +22,10 @@ public class About extends Page {
     @Override
     public String getTitle() {
         return "About";
+    }
+
+    @Override
+    public void onPageChange(boolean enter) {
+
     }
 }

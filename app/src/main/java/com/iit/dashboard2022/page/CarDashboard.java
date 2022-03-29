@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import com.iit.dashboard2022.R;
 import com.iit.dashboard2022.ecu.ECU;
@@ -20,7 +21,7 @@ import com.iit.dashboard2022.ui.widget.gauge.SpeedGauge;
 
 import java.util.Locale;
 
-public class CarDashboard extends Page implements UITester.TestUI {
+public class CarDashboard extends Fragment implements UITester.TestUI, Page {
     private StartLight dashStartLight;
     private SpeedGauge sgL, sgR;
     private LinearGauge batteryGauge, powerGauge;
@@ -125,6 +126,11 @@ public class CarDashboard extends Page implements UITester.TestUI {
     @Override
     public String getTitle() {
         return "Dashboard";
+    }
+
+    @Override
+    public void onPageChange(boolean enter) {
+
     }
 
     @Override

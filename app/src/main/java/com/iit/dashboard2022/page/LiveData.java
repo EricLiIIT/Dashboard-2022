@@ -8,6 +8,7 @@ import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import com.iit.dashboard2022.R;
 import com.iit.dashboard2022.ui.UITester;
@@ -15,7 +16,7 @@ import com.iit.dashboard2022.ui.widget.LiveDataEntry;
 
 import java.util.Arrays;
 
-public class LiveData extends Page implements UITester.TestUI {
+public class LiveData extends Fragment implements UITester.TestUI, Page {
 
     private LinearLayout liveDataEntries1, liveDataEntries2;
     private ViewGroup rootView;

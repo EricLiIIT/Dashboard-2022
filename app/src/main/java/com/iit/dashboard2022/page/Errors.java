@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import com.iit.dashboard2022.R;
 import com.iit.dashboard2022.ui.UITester;
@@ -20,7 +21,7 @@ import com.iit.dashboard2022.ui.UITester;
 import java.text.DateFormat;
 import java.util.Date;
 
-public class Errors extends Page implements UITester.TestUI {
+public class Errors extends Fragment implements UITester.TestUI, Page{
 
     private TextView errorText;
     private ScrollView errorScroller;
@@ -68,6 +69,11 @@ public class Errors extends Page implements UITester.TestUI {
     @Override
     public String getTitle() {
         return "Errors";
+    }
+
+    @Override
+    public void onPageChange(boolean enter) {
+
     }
 
     @Override

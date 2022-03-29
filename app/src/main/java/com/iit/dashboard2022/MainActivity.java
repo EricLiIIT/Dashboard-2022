@@ -12,6 +12,9 @@ import android.view.WindowManager;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.iit.dashboard2022.ecu.ECU;
 import com.iit.dashboard2022.ecu.ECUUpdater;
 import com.iit.dashboard2022.page.CarDashboard;
@@ -19,6 +22,8 @@ import com.iit.dashboard2022.page.Commander;
 import com.iit.dashboard2022.page.Errors;
 import com.iit.dashboard2022.page.LiveData;
 import com.iit.dashboard2022.page.Logs;
+import com.iit.dashboard2022.page.Map;
+import com.iit.dashboard2022.page.Page;
 import com.iit.dashboard2022.page.PageManager;
 import com.iit.dashboard2022.page.Pager;
 import com.iit.dashboard2022.ui.SidePanel;
@@ -63,7 +68,10 @@ public class MainActivity extends AppCompatActivity {
         commandPage.setECU(frontECU);
         cdPage.setECU(frontECU);
         Logs logPage = (Logs) mainPager.getPage(PageManager.LOGS);
-
+        Map mapPage = (Map) mainPager.getPage(PageManager.MAP);
+        mapPage.getMapAsync(v -> {v.addMarker(new MarkerOptions()
+                .position(new LatLng(-34, 151))
+                .title("Marker"));});
         /* SIDE PANEL */
         sidePanel = findViewById(R.id.sidePanel);
         sidePanel.attach(this, console, cdPage, ldPage, errorsPage, frontECU);

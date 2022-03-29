@@ -61,7 +61,7 @@ public class PageManager extends FragmentStateAdapter {
     @NonNull
     @Override
     public Fragment createFragment(@PageIndex int page) {
-        return pages[page];
+        return (Fragment) pages[page];
     }
 
     public Page getPage(@PageIndex int page) {

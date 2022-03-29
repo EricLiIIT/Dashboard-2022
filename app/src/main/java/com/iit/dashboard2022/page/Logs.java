@@ -12,6 +12,7 @@ import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import com.iit.dashboard2022.R;
 import com.iit.dashboard2022.ecu.ECUColor;
@@ -26,7 +27,7 @@ import com.iit.dashboard2022.util.Toaster;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Logs extends Page {
+public class Logs extends Fragment implements Page {
     private final static HandlerThread workerThread = new HandlerThread("Logging Thread");
     private static Handler worker;
 
@@ -228,6 +229,11 @@ public class Logs extends Page {
     @Override
     public String getTitle() {
         return "Logs";
+    }
+
+    @Override
+    public void onPageChange(boolean enter) {
+
     }
 
 }
