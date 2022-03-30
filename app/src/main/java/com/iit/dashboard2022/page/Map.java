@@ -33,7 +33,7 @@ public class Map extends Fragment implements Page {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.map_layout, container, false);
 
-        mapView = (MapView) rootView.findViewById(R.id.mapView);
+        mapView = rootView.findViewById(R.id.mapView);
         mapView.onCreate(savedInstanceState);
 
         mapView.onResume();
@@ -50,8 +50,9 @@ public class Map extends Fragment implements Page {
                 googleMap = mMap;
 
                 // For showing a move to my location button
-                googleMap.setMyLocationEnabled(true);
-
+//                googleMap.setMyLocationEnabled(true);
+//                googleMap.setMyLocationEnabled(true);
+                enableMyLocation();
                 // For dropping a marker at a point on the Map
                 LatLng sydney = new LatLng(-34, 151);
                 googleMap.addMarker(new MarkerOptions().position(sydney).title("Marker Title").snippet("Marker Description"));
@@ -78,7 +79,7 @@ public class Map extends Fragment implements Page {
         }
 
         // 2. Otherwise, request location permissions from the user.
-        PermissionUtils.requestLocationPermissions(this, LOCATION_PERMISSION_REQUEST_CODE, true);
+//        PermissionUtils.requestLocationPermissions(this, LOCATION_PERMISSION_REQUEST_CODE, true);
     }
 
     @Override

@@ -69,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
         cdPage.setECU(frontECU);
         Logs logPage = (Logs) mainPager.getPage(PageManager.LOGS);
         Map mapPage = (Map) mainPager.getPage(PageManager.MAP);
+        mapPage.onResume();
 //        mapPage.getMapAsync(v -> {v.addMarker(new MarkerOptions()
 //                .position(new LatLng(-34, 151))
 //                .title("Marker"));});
