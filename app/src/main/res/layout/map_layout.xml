@@ -1,10 +1,22 @@
-<!-- res/layout/example_activity.xml -->
-<androidx.fragment.app.FragmentContainerView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/fragment_container_view"
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:name="com.iit.dashboard2022.page." />
+    android:layout_height="match_parent" >
+
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/mapView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</RelativeLayout>
+
+<!-- res/layout/example_activity.xml -->
+<!--<androidx.fragment.app.FragmentContainerView-->
+<!--    xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    android:id="@+id/fragment_container_view"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+<!--    android:name="com.iit.dashboard2022.page." />-->
 
 <!--<?xml version="1.0" encoding="utf-8"?>-->
 <!--<fragment xmlns:android="http://schemas.android.com/apk/res/android"-->

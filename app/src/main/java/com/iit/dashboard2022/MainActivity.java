@@ -69,9 +69,9 @@ public class MainActivity extends AppCompatActivity {
         cdPage.setECU(frontECU);
         Logs logPage = (Logs) mainPager.getPage(PageManager.LOGS);
         Map mapPage = (Map) mainPager.getPage(PageManager.MAP);
-        mapPage.getMapAsync(v -> {v.addMarker(new MarkerOptions()
-                .position(new LatLng(-34, 151))
-                .title("Marker"));});
+//        mapPage.getMapAsync(v -> {v.addMarker(new MarkerOptions()
+//                .position(new LatLng(-34, 151))
+//                .title("Marker"));});
         /* SIDE PANEL */
         sidePanel = findViewById(R.id.sidePanel);
         sidePanel.attach(this, console, cdPage, ldPage, errorsPage, frontECU);
