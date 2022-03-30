@@ -1,5 +1,8 @@
 package com.iit.dashboard2022.page;
 
+import android.Manifest;
+import android.annotation.SuppressLint;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +11,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -46,7 +50,7 @@ public class Map extends Fragment implements Page {
                 googleMap = mMap;
 
                 // For showing a move to my location button
-//                googleMap.setMyLocationEnabled(true);
+                googleMap.setMyLocationEnabled(true);
 
                 // For dropping a marker at a point on the Map
                 LatLng sydney = new LatLng(-34, 151);
@@ -59,6 +63,22 @@ public class Map extends Fragment implements Page {
         });
 
         return rootView;
+    }
+    // https://stackoverflow.com/questions/19353255/how-to-put-google-maps-v2-on-a-fragment-using-viewpager
+    // https://developers.google.com/maps/documentation/android-sdk/location#:~:text=If%20your%20app%20needs%20to,location%20returned%20by%20the%20API.
+    @SuppressLint("MissingPermission")
+    private void enableMyLocation() {
+        // 1. Check if permissions are granted, if so, enable the my location layer
+        if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION)
+                == PackageManager.PERMISSION_GRANTED
+                || ContextCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_COARSE_LOCATION)
+                == PackageManager.PERMISSION_GRANTED) {
+            googleMap.setMyLocationEnabled(true);
+            return;
+        }
+
+        // 2. Otherwise, request location permissions from the user.
+        PermissionUtils.requestLocationPermissions(this, LOCATION_PERMISSION_REQUEST_CODE, true);
     }
 
     @Override
