@@ -21,7 +21,7 @@ import com.iit.dashboard2022.ui.widget.gauge.SpeedGauge;
 
 import java.util.Locale;
 
-public class CarDashboard extends Fragment implements UITester.TestUI, Page {
+public class CarDashboard extends Page implements UITester.TestUI {
     private StartLight dashStartLight;
     private SpeedGauge sgL, sgR;
     private LinearGauge batteryGauge, powerGauge;

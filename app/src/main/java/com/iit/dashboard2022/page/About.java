@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment;
 
 import com.iit.dashboard2022.R;
 
-public class About extends Fragment implements Page {
+public class About extends Page {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

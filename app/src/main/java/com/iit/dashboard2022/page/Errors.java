@@ -21,7 +21,7 @@ import com.iit.dashboard2022.ui.UITester;
 import java.text.DateFormat;
 import java.util.Date;
 
-public class Errors extends Fragment implements UITester.TestUI, Page{
+public class Errors extends Page implements UITester.TestUI{
 
     private TextView errorText;
     private ScrollView errorScroller;

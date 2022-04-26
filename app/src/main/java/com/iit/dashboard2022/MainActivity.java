@@ -13,6 +13,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.iit.dashboard2022.ecu.ECU;
@@ -59,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onPostCreate(@Nullable Bundle savedInstanceState) {
         ConsoleWidget console = findViewById(R.id.console);
+        SupportMapFragment map;
 
         /* PAGER */
         CarDashboard cdPage = (CarDashboard) mainPager.getPage(PageManager.DASHBOARD);
@@ -68,11 +71,7 @@ public class MainActivity extends AppCompatActivity {
         commandPage.setECU(frontECU);
         cdPage.setECU(frontECU);
         Logs logPage = (Logs) mainPager.getPage(PageManager.LOGS);
-        Map mapPage = (Map) mainPager.getPage(PageManager.MAP);
-        mapPage.onResume();
-//        mapPage.getMapAsync(v -> {v.addMarker(new MarkerOptions()
-//                .position(new LatLng(-34, 151))
-//                .title("Marker"));});
+
         /* SIDE PANEL */
         sidePanel = findViewById(R.id.sidePanel);
         sidePanel.attach(this, console, cdPage, ldPage, errorsPage, frontECU);

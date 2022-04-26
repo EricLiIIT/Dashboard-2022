@@ -16,7 +16,7 @@ import com.iit.dashboard2022.ui.widget.LiveDataEntry;
 
 import java.util.Arrays;
 
-public class LiveData extends Fragment implements UITester.TestUI, Page {
+public class LiveData extends Page implements UITester.TestUI {
 
     private LinearLayout liveDataEntries1, liveDataEntries2;
     private ViewGroup rootView;

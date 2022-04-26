@@ -27,7 +27,7 @@ import com.iit.dashboard2022.util.Toaster;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Logs extends Fragment implements Page {
+public class Logs extends Page {
     private final static HandlerThread workerThread = new HandlerThread("Logging Thread");
     private static Handler worker;
 

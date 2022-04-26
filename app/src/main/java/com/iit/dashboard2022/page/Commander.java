@@ -30,7 +30,7 @@ import com.iit.dashboard2022.util.Toaster;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 
-public class Commander extends Fragment implements Page {
+public class Commander extends Page {
 
     private final LiveDataSelector selector = new LiveDataSelector();
 

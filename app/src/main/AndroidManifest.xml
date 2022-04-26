@@ -29,11 +29,7 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="${MAPS_API_KEY}" />
-        <!--            https://stackoverflow.com/questions/2868047/fullscreen-activity-in-android-->
-<!--        <activity-->
-<!--            android:name=".page.PolyActivity"-->
-<!--            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"-->
-<!--            android:exported="false" />-->
+
         <activity
             android:name=".SplashActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
